@@ -22,6 +22,10 @@ default: &default
 development:
   <<: *default
   database: makerable_medicals_development
+  password: <%= ENV["DBPASSWORD"] %>
+  host: <%= ENV["DBHOST"] %>
+  username: <%= ENV["DBUSERNAME"]%>
+  port: <%= ENV["DBPORT"]%>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -56,6 +60,10 @@ development:
 test:
   <<: *default
   database: makerable_medicals_test
+  password: <%= ENV["DBPASSWORD"] %>
+  host: <%= ENV["DBHOST"] %>
+  username: <%= ENV["DBUSERNAME"]%>
+  port: <%= ENV["DBPORT"]%>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

@@ -1,12 +1,29 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render "users/shared/error_messages", resource: resource %>
 
+   <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+   <div class="field">
+      <%= f.label :middle_name %><br />
+      <%= f.text_field :middle_name, autofocus: true, autocomplete: "middle_name" %>
+  </div>
+  <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+   <div class="field"><br />
+    <%= form.label :role %>
+    <%= form.select :role, User.roles.keys, autofocus: true, autocomplete: "email" %>
+  </div>
+
 
   <div class="field">
     <%= f.label :password %>
@@ -26,4 +43,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "users/shared/links" %>

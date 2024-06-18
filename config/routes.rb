@@ -3,19 +3,19 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
+
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+    root to: 'devise/sessions#new'
   end
 
   authenticated :user do
-    root to: 'home#index', as: :authenticated_root
+
   end
 
   unauthenticated do
     root to: 'devise/registrations#new', as: :unauthenticated_root
   end
 
-  resource :user
   resource :doctor
   resource :receptionist
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

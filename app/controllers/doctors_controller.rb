@@ -1,5 +1,4 @@
 class DoctorsController < ApplicationController
-  before_action :authenticate_user
   before_action :ensure_doctor
   def show
     @patients = Patient.all
